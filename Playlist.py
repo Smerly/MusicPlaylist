@@ -28,31 +28,49 @@ class Playlist:
 
         if self.__first_song.get_title() == title:
             self.__first_song = self.__first_song.get_next_song()
-            print('Item Removed')
             return
 
         while current_node != None:
-
+            temp_node = current_node
+            current_node = current_node.get_next_song()
             if current_node.get_title() == title:
-                temp_node = current_node
-                current_node = current_node.get_next_song()
                 temp_node.set_next_song(current_node.get_next_song())
-            return True
+                return True
         return False
 
         #  -----
 
-        # print(current_node.__next_song)
-        # return True
-        # ^
-        # temp_node = current_node
-        # current_node = current_node.get_next_song()
-        # else:
-        #     counter += 1
-        #     current_node = current_node.get_next_song()
+    # def remove_song(self, title):
+    #     if self.__first_song.get_title() == title:
+    #         self.__first_song = self.__first_song.get_next_song()
+    #         print('Item Removed')
+    #         return
+    #     current_node = self.__first_song
+    #     previous_node = None
 
-        # find the song that you want to remove
-        # assign the previous song next to the next, next song
+    #     while current_node != None:
+    #         previous_node = current_node
+    #         current_node = current_node.get_next_song()
+    #         if current_node.get_title() == title:
+    #             previous_node.set_next_song(current_node.get_next_song())
+    #             print('Item Removed')
+    #             return
+    #     print('title not detected')
+    #     return
+
+    # ---------
+
+    # print(current_node.__next_song)
+    # return True
+    # ^
+    # temp_node = current_node
+    # current_node = current_node.get_next_song()
+    # else:
+    #     counter += 1
+    #     current_node = current_node.get_next_song()
+
+    # find the song that you want to remove
+    # assign the previous song next to the next, next song
 
     def length(self):
         current_node = self.__first_song
