@@ -26,6 +26,11 @@ class Playlist:
         current_node = self.__first_song
         temp_node = None
 
+        if self.__first_song.get_title() == title:
+            self.__first_song = self.__first_song.get_next_song()
+            print('Item Removed')
+            return
+
         while current_node != None:
 
             if current_node.get_title() == title:
